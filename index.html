@@ -436,16 +436,16 @@ textarea {
 <!-- RSVP -->
 <section class="rsvp-section">
 <div class="container">
-<h2 class="section-title">Подтвердите присутствие</h2>
+<h2 class="section-title">Анкета гостя</h2>
 <p>Пожалуйста, сообщите о своем участии до 20 июля 2025 года</p>
 <form class="rsvp-form" id="rsvpForm">
 <div class="form-group">
 <label class="form-label" for="name">Ваше имя и фамилия*</label>
-<input class="form-input" id="name" required="" type="text"/>
+<input class="form-input" id="name" required="" type="text" placeholder="Имя и фамилия" />
 </div>
 <div class="form-group">
-<label class="form-label" for="phone">Ваш телефон*</label>
-<input class="form-input" id="phone" required="" type="tel"/>
+  <label class="form-label" for="partner">Если вы планируете быть с парой, пожалуйста, укажите фамилию и имя Вашей второй половинки</label>
+  <input class="form-input" id="partner" type="text" placeholder="Имя и фамилия второй половинки" />
 </div>
 <div class="form-group">
 <label class="form-label">Вы придёте?</label>
@@ -455,26 +455,16 @@ textarea {
 </div>
 </div>
 <div class="form-group">
-<label class="form-label">С кем вы придёте?</label>
-<div id="guestsContainer">
-<div class="guest-item">
-<input class="form-input guest-name" placeholder="Имя и фамилия" type="text"/>
-<button class="remove-guest" type="button">×</button>
-</div>
-</div>
-<button class="add-guest" id="addGuest" type="button">+ Добавить гостя</button>
-</div>
-<div class="form-group">
-<label class="form-label" for="drink">Предпочтительный напиток</label>
-<select class="form-select" id="drink">
-<option value="wine_red">Красное вино</option>
-<option value="wine_white">Белое вино</option>
-<option value="champagne">Шампанское</option>
-<option value="vodka">Водка</option>
-<option value="whiskey">Виски</option>
-<option value="juice">Сок</option>
-<option value="none">Не употребляю алкоголь</option>
-</select>
+  <label class="form-label">Предпочтительный напиток (можно выбрать несколько)</label>
+  <div class="form-checkbox-group">
+    <label><input type="checkbox" name="drink" value="wine_red"> Красное вино</label><br/>
+    <label><input type="checkbox" name="drink" value="wine_white"> Белое вино</label><br/>
+    <label><input type="checkbox" name="drink" value="champagne"> Шампанское</label><br/>
+    <label><input type="checkbox" name="drink" value="vodka"> Водка</label><br/>
+    <label><input type="checkbox" name="drink" value="whiskey"> Виски</label><br/>
+    <label><input type="checkbox" name="drink" value="juice"> Сок</label><br/>
+    <label><input type="checkbox" name="drink" value="none"> Не употребляю алкоголь</label>
+  </div>
 </div>
 <div class="form-group">
 <label class="form-label" for="message">Ваши пожелания или комментарии</label>
@@ -547,7 +537,7 @@ textarea {
                 phone: document.getElementById('phone').value,
                 attendance: document.querySelector('input[name="attendance"]:checked').value,
                 guests: Array.from(document.querySelectorAll('.guest-name')).map(input => input.value).filter(name => name.trim() !== ''),
-                drink: document.getElementById('drink').value,
+                drink: Array.from(document.querySelectorAll('input[name="drink"]:checked')).map(cb => cb.value),
                 message: document.getElementById('message').value
             };
             
