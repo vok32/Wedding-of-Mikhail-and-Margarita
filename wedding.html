@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Михаил & Маргарита | Свадьба 02.08.2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #a78b60;
+            --light-gold: #f0e6d2;
+            --dark: #333333;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: #fafafa;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('bg-header.jpg') center/cover no-repeat;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        
+        .header-subtitle {
+            font-size: 24px;
+            margin: 20px 0 0;
+            font-weight: 300;
+            letter-spacing: 5px;
+        }
+        
+        .header-date {
+            font-size: 18px;
+            margin-top: 30px;
+            letter-spacing: 3px;
+        }
+        
+        /* Couple Section */
+        .couple-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--gold);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+            margin: 15px auto 0;
+        }
+        
+        .couple-names {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+        }
+        
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin: 0 30px;
+        }
+        
+        .ampersand {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: var(--gold);
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 50px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 350px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Details */
+        .details-section {
+            padding: 80px 0;
+            background-color: var(--light-gold);
+        }
+        
+        .details-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .detail-box {
+            flex: 0 0 30%;
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .detail-icon {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .detail-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark-gold);
+        }
+        
+        /* RSVP */
+        .rsvp-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .rsvp-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .guest-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        
+        .add-guest {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .remove-guest {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .rsvp-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 30px;
+            margin-top: 30px;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+        }
+        
+        .rsvp-btn:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-text {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .countdown-item {
+            margin: 0 15px;
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-size: 40px;
+            font-weight: bold;
+            color: var(--gold);
+        }
+        
+        .countdown-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .detail-box {
+                flex: 0 0 45%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 48px;
+            }
+            
+            .header-subtitle {
+                font-size: 18px;
+            }
+            
+            .name {
+                font-size: 36px;
+            }
+            
+            .ampersand {
+                font-size: 48px;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-box {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">Михаил & Маргарита</h1>
+            <p class="header-subtitle">Скоро наш день</p>
+            <p class="header-date">02 АВГУСТА 2025</p>
+        </div>
+    </header>
+    
+    <!-- Couple Section -->
+    <section class="couple-section">
+        <div class="container">
+            <h2 class="section-title">Наша история</h2>
+            <div class="couple-names">
+                <div class="name">Михаил</div>
+                <div class="ampersand">&</div>
+                <div class="name">Маргарита</div>
+            </div>
+            <p>Мы познакомились 5 лет назад и с первого взгляда поняли, что созданы друг для друга. После долгих лет счастливых отношений мы решили связать наши судьбы узами брака и хотим разделить этот особенный день с вами.</p>
+        </div>
+    </section>
+    
+    <!-- Gallery -->
+    <section class="container">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="photo1.jpg" alt="Фото пары 1">
+            </div>
+            <div class="gallery-item">
+                <img src="photo2.jpg" alt="Фото пары 2">
+            </div>
+            <div class="gallery-item">
+                <img src="photo3.jpg" alt="Фото пары 3">
+            </div>
+            <div class="gallery-item">
+                <img src="photo4.jpg" alt="Фото пары 4">
+            </div>
+            <div class="gallery-item">
+                <img src="photo5.jpg" alt="Фото пары 5">
+            </div>
+            <div class="gallery-item">
+                <img src="photo6.jpg" alt="Фото пары 6">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Countdown -->
+    <section class="couple-section">
+        <div class="container">
+            <h2 class="section-title">До свадьбы осталось</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Дней</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Часов</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Минут</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Секунд</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Details -->
+    <section class="details-section">
+        <div class="container">
+            <h2 class="section-title">Детали мероприятия</h2>
+            <div class="details-container">
+                <div class="detail-box">
+                    <div class="detail-icon">⏱️</div>
+                    <h3 class="detail-title">Когда</h3>
+                    <p>02 августа 2025 года</p>
+                    <p>Сбор гостей в 15:00</p>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-icon">📍</div>
+                    <h3 class="detail-title">Где</h3>
+                    <p>Ресторан "Лето"</p>
+                    <p>г. Москва, ул. Цветочная, 18</p>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-icon">👗</div>
+                    <h3 class="detail-title">Дресс-код</h3>
+                    <p>Вечерние наряды</p>
+                    <p>Цветовая гамма: золотой, бежевый, белый</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- RSVP -->
+    <section class="rsvp-section">
+        <div class="container">
+            <h2 class="section-title">Подтвердите присутствие</h2>
+            <p>Пожалуйста, сообщите о своем участии до 20 июля 2025 года</p>
+            
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Ваше имя и фамилия*</label>
+                    <input type="text" id="name" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Ваш email*</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Ваш телефон*</label>
+                    <input type="tel" id="phone" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Вы придёте?</label>
+                    <div>
+                        <label><input type="radio" name="attendance" value="yes" checked> С радостью приду!</label>
+                        <label><input type="radio" name="attendance" value="no" style="margin-left: 15px;"> К сожалению, не смогу</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">С кем вы придёте?</label>
+                    <div id="guestsContainer">
+                        <div class="guest-item">
+                            <input type="text" class="form-input guest-name" placeholder="Имя и фамилия">
+                            <button type="button" class="remove-guest">×</button>
+                        </div>
+                    </div>
+                    <button type="button" id="addGuest" class="add-guest">+ Добавить гостя</button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="drink" class="form-label">Предпочтительный напиток</label>
+                    <select id="drink" class="form-select">
+                        <option value="wine_red">Красное вино</option>
+                        <option value="wine_white">Белое вино</option>
+                        <option value="champagne">Шампанское</option>
+                        <option value="vodka">Водка</option>
+                        <option value="whiskey">Виски</option>
+                        <option value="juice">Сок</option>
+                        <option value="none">Не употребляю алкоголь</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Ваши пожелания или комментарии</label>
+                    <textarea id="message" class="form-input" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="rsvp-btn">Подтвердить</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">С любовью, Михаил и Маргарита</p>
+            <p class="footer-text">© 2025</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const weddingDate = new Date('August 2, 2025 15:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Guest management
+        document.getElementById('addGuest').addEventListener('click', function() {
+            const guestsContainer = document.getElementById('guestsContainer');
+            const guestItem = document.createElement('div');
+            guestItem.className = 'guest-item';
+            guestItem.innerHTML = `
+                <input type="text" class="form-input guest-name" placeholder="Имя и фамилия">
+                <button type="button" class="remove-guest">×</button>
+            `;
+            guestsContainer.appendChild(guestItem);
+            
+            // Add event listener to new remove button
+            guestItem.querySelector('.remove-guest').addEventListener('click', function() {
+                guestsContainer.removeChild(guestItem);
+            });
+        });
+        
+        // Add event listeners to existing remove buttons
+        document.querySelectorAll('.remove-guest').forEach(button => {
+            button.addEventListener('click', function() {
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            });
+        });
+        
+        // Form submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                attendance: document.querySelector('input[name="attendance"]:checked').value,
+                guests: Array.from(document.querySelectorAll('.guest-name')).map(input => input.value).filter(name => name.trim() !== ''),
+                drink: document.getElementById('drink').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Here you would typically send the data to a server
+            console.log('Form data:', formData);
+            
+            // Show confirmation
+            alert('Спасибо! Ваш ответ сохранён. Ждём вас на свадьбе!');
+            this.reset();
+            
+            // Reset guests
+            const guestsContainer = document.getElementById('guestsContainer');
+            guestsContainer.innerHTML = `
+                <div class="guest-item">
+                    <input type="text" class="form-input guest-name" placeholder="Имя и фамилия">
+                    <button type="button" class="remove-guest">×</button>
+                </div>
+            `;
+            
+            // Re-add event listener to reset button
+            guestsContainer.querySelector('.remove-guest').addEventListener('click', function() {
+                guestsContainer.removeChild(this.parentNode);
+            });
+        });
+    </script>
+</body>
+</html>
