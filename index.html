@@ -390,12 +390,37 @@ textarea {
 .couple-section p {
   line-height: 1.1;
 }
+
+.header-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 100%;
+  width: auto;
+  max-width: 600px;
+  z-index: 1;
+  opacity: 0.75;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.left-decor {
+  left: 0;
+}
+
+.right-decor {
+  right: 0;
+  left: auto;
+  transform: scaleX(-1);
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
 </head>
 <body>
 <!-- Header -->
 <header class="header">
+  <img alt="украшение слева" class="header-decoration left-decor" src="img/decor_1.png"/>
+  <img alt="украшение справа" class="header-decoration right-decor" src="img/decor_2.png"/>
 <div class="header-content">
 <h1 class="header-title">
      Михаил &amp; Маргарита
