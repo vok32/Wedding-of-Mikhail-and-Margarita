@@ -369,7 +369,19 @@ textarea {
 .ampersand {
     font-family: 'Great Vibes', cursive;
 }
-  </style>
+  
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
  </head>
  <body>
@@ -388,7 +400,7 @@ textarea {
    </div>
   </header>
   <!-- Couple Section -->
-  <section class="couple-section">
+  <section class="couple-section fade-in">
    <div class="container">
     <div class="couple-names">
      <div class="name">
@@ -431,7 +443,7 @@ textarea {
    </div>
   </section>
   <!-- Countdown -->
-  <section class="couple-section">
+  <section class="couple-section fade-in">
    <div class="container">
     <h2 class="section-title">
      До свадьбы осталось
@@ -473,7 +485,7 @@ textarea {
    </div>
   </section>
   <!-- Details -->
-  <section class="details-section">
+  <section class="details-section fade-in">
    <div class="container">
     <h2 class="section-title">
      Детали мероприятия
@@ -525,7 +537,7 @@ textarea {
    </div>
   </section>
   <!-- RSVP -->
-  <section class="rsvp-section">
+  <section class="rsvp-section fade-in">
    <div class="container">
     <h2 class="section-title">
      Анкета гостя
@@ -707,5 +719,25 @@ textarea {
             });
         });
   </script>
- </body>
+ 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  document.querySelectorAll('.fade-in').forEach(section => {
+    observer.observe(section);
+  });
+});
+</script>
+
+</body>
 </html>
