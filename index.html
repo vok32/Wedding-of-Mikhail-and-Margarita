@@ -974,5 +974,47 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+<script>
+window.onload = function() {
+  const form = document.getElementById('rsvpForm');
+  if (!form) {
+    console.error('Форма с id="rsvpForm" не найдена!');
+    return;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('name')?.value || '',
+      partner: document.getElementById('partner')?.value || '',
+      attendance: document.querySelector('input[name="attendance"]:checked')?.value || '',
+      transfer: document.querySelector('input[name="transfer"]:checked')?.value || '',
+      sleeping_place: document.querySelector('input[name="sleeping_place"]:checked')?.value || '',
+      drink: Array.from(document.querySelectorAll('input[name="drink"]:checked')).map(cb => cb.value),
+      message: document.getElementById('message')?.value || ''
+    };
+
+    console.log('Отправка в Google Таблицу...', formData);
+
+    fetch('https://script.google.com/macros/s/AKfycbzd2qeb5u04utRdWEJ1l9hw9odsTsG3APjJMk40v55l41_YKGvM9pDKpGlISB2Csjo/exec', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('Спасибо! Ваш ответ сохранён. Ждём вас на свадьбе!');
+        form.reset();
+      } else {
+        alert('Ошибка при отправке. Попробуйте ещё раз.');
+      }
+    })
+    .catch(() => alert('Сетевая ошибка.'));
+  });
+};
+</script>
 </body>
+
 </html>
