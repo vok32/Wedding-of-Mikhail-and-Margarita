@@ -920,6 +920,19 @@ textarea {
                 drink: Array.from(document.querySelectorAll('input[name="drink"]:checked')).map(cb => cb.value),
                 message: document.getElementById('message').value
             };
+  // Отправка данных в Google Таблицу
+  fetch('https://script.google.com/macros/s/AKfycbzd2qeb5u04utRdWEJ1l9hw9odsTsG3APjJMk40v55l41_YKGvM9pDKpGlISB2Csjo/exec', {
+    method: 'POST',
+    body: JSON.stringify(formData),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(response => {
+    if (!response.ok) {
+      console.error('Ошибка Google Script:', response.statusText);
+    }
+  })
+  .catch(error => console.error('Сетевая ошибка Google Script:', error));
+
             
             // Here you would typically send the data to a server
             console.log('Form data:', formData);
