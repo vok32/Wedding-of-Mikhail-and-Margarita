@@ -916,54 +916,7 @@ textarea {
         });
         
         // Form submission
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Collect form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                attendance: document.querySelector('input[name="attendance"]:checked').value,
-                guests: Array.from(document.querySelectorAll('.guest-name')).map(input => input.value).filter(name => name.trim() !== ''),
-                drink: Array.from(document.querySelectorAll('input[name="drink"]:checked')).map(cb => cb.value),
-                message: document.getElementById('message').value
-            };
-  // Отправка данных в Google Таблицу
-  fetch('https://script.google.com/macros/s/AKfycbzCEPsjgylVeDxu54o8DuntjyNoksT6jPzYpxTty1r1u0QZxH8moBu0HWgCnNl3ct3K/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: JSON.stringify(formData),
-    headers: { 'Content-Type': 'application/json' }
-  })
-  .then(response => {
-    if (!response.ok) {
-      console.error('Ошибка Google Script:', response.statusText);
-    }
-  })
-  .catch(error => console.error('Сетевая ошибка Google Script:', error));
-
-            
-            // Here you would typically send the data to a server
-            console.log('Form data:', formData);
-            
-            // Show confirmation
-            alert('Спасибо! Ваш ответ сохранён. Ждём вас на свадьбе!');
-            this.reset();
-            
-            // Reset guests
-            const guestsContainer = document.getElementById('guestsContainer');
-            guestsContainer.innerHTML = `
-                <div class="guest-item">
-                    <input type="text" class="form-input guest-name" placeholder="Имя и фамилия">
-                    <button type="button" class="remove-guest">×</button>
-                </div>
-            `;
-            
-            // Re-add event listener to reset button
-            guestsContainer.querySelector('.remove-guest').addEventListener('click', function() {
-                guestsContainer.removeChild(this.parentNode);
-            });
+        
         });
   </script>
 <script>
