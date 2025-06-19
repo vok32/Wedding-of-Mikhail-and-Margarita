@@ -932,6 +932,7 @@ textarea {
   // Отправка данных в Google Таблицу
   fetch('https://script.google.com/macros/s/AKfycbzCEPsjgylVeDxu54o8DuntjyNoksT6jPzYpxTty1r1u0QZxH8moBu0HWgCnNl3ct3K/exec', {
     method: 'POST',
+    mode: 'no-cors',
     body: JSON.stringify(formData),
     headers: { 'Content-Type': 'application/json' }
   })
@@ -1009,6 +1010,7 @@ window.onload = function() {
 
     fetch('https://script.google.com/macros/s/AKfycbzCEPsjgylVeDxu54o8DuntjyNoksT6jPzYpxTty1r1u0QZxH8moBu0HWgCnNl3ct3K/exec', {
       method: 'POST',
+      mode: 'no-cors',
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' }
     })
