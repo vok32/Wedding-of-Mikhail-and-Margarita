@@ -930,7 +930,7 @@ textarea {
                 message: document.getElementById('message').value
             };
   // Отправка данных в Google Таблицу
-  fetch('https://script.google.com/macros/s/AKfycbxbPg7WtfAALlFuie4b3Xu2tdxZj5sb2_Cza51F6cBoNBxmtViX_-G-UPd61XI1c50_DA/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzCEPsjgylVeDxu54o8DuntjyNoksT6jPzYpxTty1r1u0QZxH8moBu0HWgCnNl3ct3K/exec', {
     method: 'POST',
     body: JSON.stringify(formData),
     headers: { 'Content-Type': 'application/json' }
@@ -1007,7 +1007,7 @@ window.onload = function() {
 
     console.log('Отправка в Google Таблицу...', formData);
 
-    fetch('https://script.google.com/macros/s/AKfycbxbPg7WtfAALlFuie4b3Xu2tdxZj5sb2_Cza51F6cBoNBxmtViX_-G-UPd61XI1c50_DA/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzCEPsjgylVeDxu54o8DuntjyNoksT6jPzYpxTty1r1u0QZxH8moBu0HWgCnNl3ct3K/exec', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' }
