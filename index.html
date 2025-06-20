@@ -427,6 +427,21 @@ textarea {
   top: auto;
 }
 
+.left-decor-bottom {
+  right: 0;
+  left: auto;
+  transform: scaleY(-1);
+}
+
+.right-decor-bottom {
+  left: 0;
+  right: auto;
+  bottom: 0;
+  top: auto;
+  transform: scaleY(-1);
+}
+
+
 .details-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -547,7 +562,7 @@ textarea {
   }
 
   .header-decoration {
-    max-width: 80% !important;
+    max-width: 50% !important;
     height: auto !important;
     left: 50% !important;
     transform: translateX(-50%);
@@ -575,6 +590,10 @@ textarea {
 </header>
 <!-- Couple Section -->
 <section class="couple-section fade-in">
+<img alt="украшение слева" class="header-decoration left-decor" src="img/epta5.png"/>
+<img alt="украшение справа" class="header-decoration right-decor" src="img/epta6.png"/>
+<img alt="украшение слева" class="header-decoration left-decor-bottom" src="img/epta8.png"/>
+<img alt="украшение справа" class="header-decoration right-decor-bottom" src="img/epta7.png"/>
 <div class="container">
 <div class="couple-names">
 <div class="name">
@@ -615,10 +634,6 @@ textarea {
 <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:15px; margin-top:30px;">
 </div>
 </div>
-</section>
-<!-- Countdown -->
-<section class="couple-section fade-in">
-<div class="container">
 <h2 class="section-title">
      До свадьбы осталось
     </h2>
