@@ -497,13 +497,18 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .header-content,
-  .couple-names,
-  .details-container,
-  .rsvp-form {
-    display: block !important;
-    width: 100% !important;
+  .header-decoration {
+    max-width: 40vw !important;
+    height: auto !important;
   }
+}
+
+@media (max-width: 480px) {
+  .header-decoration {
+    max-width: 30vw !important;
+    height: auto !important;
+  }
+}
 
   .header-title,
   .header-subtitle,
@@ -578,6 +583,65 @@ textarea {
     transform: translateX(-50%);
   }
 }
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+.details-section .container {
+  position: relative;
+  z-index: 2;
+}
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+.schedule-item {
+  position: relative;
+  z-index: 2;
+}
+.schedule-text {
+  position: relative;
+  z-index: 2;
+}
+.rsvp-section .container {
+  position: relative;
+  z-index: 2;
+}
+.question {
+  position: relative;
+  z-index: 2;
+}
+.question label {
+  position: relative;
+  z-index: 2;
+}
+.question textarea {
+  position: relative;
+  z-index: 2;
+}
+.question select {
+  position: relative;
+  z-index: 2;
+}
+.invitation-text {
+  position: relative;
+  z-index: 2;
+}
+.main-photo-text {
+  position: relative;
+  z-index: 2;
+}
+.header-text {
+  position: relative;
+  z-index: 2;
+}
+
+.countdown, .countdown-container, .countdown-item {
+  position: relative;
+  z-index: 3;
+}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
 </head>
@@ -597,7 +661,7 @@ textarea {
      02 АВГУСТА 2025
     </p>
 </div>
-</header>ы
+</header>
 <!-- Couple Section -->
 <section class="couple-section fade-in">
 <img alt="украшение слева" class="header-decoration left-decor-up" src="img/epta3.png"/>
