@@ -994,7 +994,17 @@
     </div>
   </footer>
   <script>
-    // Countdown timer
+    function getDeclensionRu(value, wordForms) {
+      const cases = [2, 0, 1, 1, 1, 2];
+      const mod100 = value % 100;
+      const mod10 = value % 10;
+
+      if (mod100 >= 11 && mod100 <= 14) return wordForms[2];
+      if (mod10 === 1) return wordForms[0];
+      if (mod10 >= 2 && mod10 <= 4) return wordForms[1];
+      return wordForms[2];
+    }
+
     function updateCountdown() {
       const weddingDate = new Date('August 2, 2025 12:15:00').getTime();
       const now = new Date().getTime();
@@ -1009,6 +1019,11 @@
       document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
       document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
       document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+      document.querySelector('#days').nextElementSibling.innerText = getDeclensionRu(days, ['день', 'дня', 'дней']);
+      document.querySelector('#hours').nextElementSibling.innerText = getDeclensionRu(hours, ['час', 'часа', 'часов']);
+      document.querySelector('#minutes').nextElementSibling.innerText = getDeclensionRu(minutes, ['минута', 'минуты', 'минут']);
+      document.querySelector('#seconds').nextElementSibling.innerText = getDeclensionRu(seconds, ['секунда', 'секунды', 'секунд']);
     }
 
     setInterval(updateCountdown, 1000);
