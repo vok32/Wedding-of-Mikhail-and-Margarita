@@ -415,42 +415,40 @@ textarea {
   object-fit: contain;
 }
 
-.left-decor {
+.left-decor-up {
   left: 0;
   right: auto;
 }
 
-.right-decor {
+.right-decor-up {
   right: 0;
   left: auto;
-  bottom: 0;
-  top: auto;
 }
 
 .left-decor-center {
-  right: 0;
-  left: auto;
+  left: 0;
+  right: auto;
   top: auto;
 }
 
 .right-decor-center {
-  left: 0;
-  right: auto;
+  right: 0;
+  left: auto;
   top: auto;
 }
 
 .left-decor-bottom {
-  right: 0;
-  left: auto;
-  transform: scaleY(-1);
-}
-
-.right-decor-bottom {
   left: 0;
   right: auto;
   bottom: 0;
   top: auto;
-  transform: scaleY(-1);
+}
+
+.right-decor-bottom {
+  right: 0;
+  left: auto;
+  bottom: 0;
+  top: auto;
 }
 
 
@@ -586,8 +584,8 @@ textarea {
 <body>
 <!-- Header -->
 <header class="header">
-<img alt="украшение слева" class="header-decoration left-decor" src="img/epta1.png"/>
-<img alt="украшение справа" class="header-decoration right-decor" src="img/epta2.png"/>
+<img alt="украшение слева" class="header-decoration left-decor-up" src="img/epta1.png"/>
+<img alt="украшение справа" class="header-decoration right-decor-bottom" src="img/epta2.png"/>
 <div class="header-content">
 <h1 class="header-title">
      Михаил &amp; Маргарита
@@ -599,13 +597,13 @@ textarea {
      02 АВГУСТА 2025
     </p>
 </div>
-</header>
+</header>ы
 <!-- Couple Section -->
 <section class="couple-section fade-in">
-<img alt="украшение слева" class="header-decoration left-decor" src="img/epta5.png"/>
-<img alt="украшение справа" class="header-decoration right-decor" src="img/epta6.png"/>
-<img alt="украшение слева" class="header-decoration left-decor-bottom" src="img/epta8.png"/>
-<img alt="украшение справа" class="header-decoration right-decor-bottom" src="img/epta7.png"/>
+<img alt="украшение слева" class="header-decoration left-decor-up" src="img/epta3.png"/>
+<img alt="украшение справа" class="header-decoration right-decor-up" src="img/epta4.png" style="transform: scaleX(-1);"/>
+<img alt="украшение слева" class="header-decoration left-decor-bottom" src="img/epta6.png" style="transform: scaleY(-1);"/>
+<img alt="украшение справа" class="header-decoration right-decor-bottom" src="img/epta7.png" style="transform: scale(-1, -1);" />
 <div class="container">
 <div class="couple-names">
 <div class="name">
@@ -687,7 +685,7 @@ textarea {
 </section>
 <!-- Details -->
 <section class="details-section fade-in" style="background-color: #bc858b; padding: 60px 0;">
-<img alt="украшение слева" class="header-decoration left-decor-center" src="img/epta9.png"/>
+<img alt="украшение слева" class="header-decoration left-decor-center" src="img/epta9.png" style="transform: scaleX(-1);"/>
 <img alt="украшение справа" class="header-decoration right-decor-center" src="img/epta10.png"/>
 <div class="container">
 <h2 class="section-title section-title--white" style="color: white;">
